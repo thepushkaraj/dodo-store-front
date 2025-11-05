@@ -34,6 +34,22 @@
           "skip": false,
           "overrides": {},
           "content": "Powered by Dodo Payments"
+        },
+        "5/0/init/body/0/argument/3/1/1-alt": {
+          "type": "attribute",
+          "hash": "ab7fcfe33af795f928ad71ce45644474",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "logo"
+        },
+        "5/0/init/body/0/argument/3/1/3": {
+          "type": "element",
+          "hash": "2bb92a81f115d50f0ad08c7c51c94d56",
+          "context": "",
+          "skip": false,
+          "overrides": {},
+          "content": "Powered by Dodo Payments"
         }
       }
     },

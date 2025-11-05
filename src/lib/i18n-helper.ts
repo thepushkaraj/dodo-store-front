@@ -1,19 +1,32 @@
 'use server';
 
-import { Locale } from "@/i18n/config";
-import { defaultLocale } from "@/i18n/config";
+import { Locale, locales, defaultLocale } from "@/i18n/config";
 import { cookies } from "next/headers";
 
 // lingo.dev Compiler reads the `lingo-locale` cookie
 const COOKIE_NAME = "lingo-locale";
 
-export async function getUserLocale() {
+export async function getUserLocale(): Promise<Locale> {
   const cookieStore = await cookies();
-  return cookieStore.get(COOKIE_NAME)?.value || defaultLocale;
+  const cookieValue = cookieStore.get(COOKIE_NAME)?.value;
+  
+  // Validate that the cookie value is a valid locale
+  if (cookieValue && locales.includes(cookieValue as Locale)) {
+    return cookieValue as Locale;
+  }
+  
+  return defaultLocale;
 }
 
 export async function setUserLocale(locale: Locale) {
-  (await cookies()).set(COOKIE_NAME, locale);
+  const cookieStore = await cookies();
+  cookieStore.set(COOKIE_NAME, locale, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'lax',
+    path: '/',
+    maxAge: 60 * 60 * 24 * 365, // 1 year
+  });
 }
 
 export async function hasUserLocaleCookie(): Promise<boolean> {

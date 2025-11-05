@@ -21,8 +21,6 @@ const gabarito = Gabarito({
   variable: "--font-gabarito",
 });
 
-
-
 export const metadata: Metadata = {
   title: "Dodo Payments",
   description: "Launch and Accept Global Payments in less than 60 minutes",
@@ -75,7 +73,7 @@ export default async function RootLayout({
                 <main>
                   <Toaster position="top-right" richColors />
                   {children}
-                  <FooterPill align="end" />
+                  <FooterPill align="end" locale={locale} />
                 </main>
               </ThemeProvider>
             </body>

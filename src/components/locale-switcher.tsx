@@ -1,12 +1,6 @@
 "use client";
 
-import React, { useCallback, useEffect, useState } from "react";
-import {
-  getUserLocale,
-  setUserLocale,
-  hasUserLocaleCookie,
-  detectUserLanguage,
-} from "@/lib/client-i18n-helper";
+import React, { useCallback, useState, useTransition } from "react";
 import {
   Select,
   SelectContent,
@@ -21,6 +15,7 @@ import { cn } from "@/lib/utils";
 import { Locale } from "@/i18n/config";
 import { LANGUAGES } from "@/constants/langauges";
 import { useRouter } from "next/navigation";
+import { setUserLocale } from "@/lib/i18n-helper";
 
 interface Language {
   code: string;
@@ -46,46 +41,38 @@ const FlagComponent = ({ country, countryName }: RPNInput.FlagProps) => {
   );
 };
 
-export default function LocaleSwitcher() {
-  const [locale, setLocale] = useState<string>("en");
-  const [hasInitialized, setHasInitialized] = useState<boolean>(false);
+interface LocaleSwitcherProps {
+  initialLocale: Locale;
+}
+
+export default function LocaleSwitcher({ initialLocale }: LocaleSwitcherProps) {
+  const [locale, setLocale] = useState<Locale>(initialLocale);
+  const [isPending, startTransition] = useTransition();
   const router = useRouter();
+
   const handleLanguageChange = useCallback(
-    (value: string) => {
-      if (value !== locale) {
-        setUserLocale(value as Locale);
-        setLocale(value);
-        // Always refresh the page to ensure language change takes effect
-        router.refresh();
+    async (value: string) => {
+      const newLocale = value as Locale;
+      if (newLocale !== locale) {
+        setLocale(newLocale);
+        // Use server action to set the cookie
+        await setUserLocale(newLocale);
+        // Refresh the page to apply the new locale
+        startTransition(() => {
+          router.refresh();
+        });
       }
     },
     [locale, router]
   );
 
-  useEffect(() => {
-    const currentLocale = getUserLocale();
-    setLocale(currentLocale);
-    setHasInitialized(true);
-  }, []);
-
-  useEffect(() => {
-    if (hasInitialized) {
-      const hasCookie = hasUserLocaleCookie();
-      if (!hasCookie) {
-        const detectedLang = detectUserLanguage();
-        if (detectedLang !== "en") {
-          handleLanguageChange(detectedLang);
-        }
-      }
-    }
-  }, [hasInitialized, handleLanguageChange]);
-
   return (
     <Select
       value={locale}
       onValueChange={(value: string) => handleLanguageChange(value)}
+      disabled={isPending}
     >
-      <SelectTrigger className={cn("w-fit h-[32px]  p-0")}>
+      <SelectTrigger className={cn("w-fit h-[32px] p-0")}>
         <div className="flex w-fit font-display text-xs items-center gap-2 h-[32px] pl-2">
           <GlobeSimple className="w-4 h-4" />
         </div>
