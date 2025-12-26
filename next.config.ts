@@ -1,9 +1,18 @@
 import { withSentryConfig } from "@sentry/nextjs";
 import type { NextConfig } from "next";
 import lingoCompiler from "lingo.dev/compiler";
+import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
+
+// Initialize Cloudflare dev mode for local development
+if (process.env.NODE_ENV === "development") {
+  initOpenNextCloudflareForDev();
+}
 
 const nextConfig: NextConfig = {
   images: {
+    // Use Cloudflare's image optimization when deployed
+    loader: process.env.NODE_ENV === "production" ? "custom" : undefined,
+    loaderFile: process.env.NODE_ENV === "production" ? "./src/lib/cloudflare-image-loader.ts" : undefined,
     remotePatterns: [
       {
         hostname: "**",
@@ -90,12 +99,6 @@ if (process.env.NEXT_PUBLIC_SENTRY_PROJECT_NAME) {
 
       // Automatically tree-shake Sentry logger statements to reduce bundle size
       disableLogger: true,
-
-      // Enables automatic instrumentation of Vercel Cron Monitors. (Does not yet work with App Router route handlers.)
-      // See the following for more information:
-      // https://docs.sentry.io/product/crons/
-      // https://vercel.com/docs/cron-jobs
-      automaticVercelMonitors: true,
     });
   } catch (error) {
     console.warn("Sentry configuration failed:", error);

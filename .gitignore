@@ -38,9 +38,21 @@ yarn-error.log*
 # vercel
 .vercel
 
+# cloudflare
+.wrangler
+.open-next
+.dev.vars
+cloudflare-env.d.ts
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
 
 # Sentry Config File
 .env.sentry-build-plugin
+
+# env
+.env.dev
+.env.prod
+.env.development.local
+.env.production.local
