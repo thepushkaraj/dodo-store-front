@@ -12,6 +12,7 @@ import {
   decodeCurrency,
   formatCurrency,
 } from "@/lib/currency-helper";
+import { analytics } from "@/components/analytics";
 
 export interface ProductCardProps {
   product_id: string;
@@ -134,8 +135,16 @@ export function ProductCard({
   }, [quantity]);
 
   const handleCheckout = useCallback(async () => {
+    // Track select_item / InitiateCheckout event
+    analytics.selectItem({
+      id: product_id,
+      name,
+      price: decodeCurrency(price, currency as CurrencyCode),
+      currency: currency || "USD",
+      quantity,
+    });
     window.location.href = `${checkoutBaseUrl}/buy/${product_id}?quantity=${quantity}`;
-  }, [quantity, product_id, checkoutBaseUrl]);
+  }, [quantity, product_id, checkoutBaseUrl, name, price, currency]);
 
   const formatFrequency = () => {
     if (!payment_frequency_count || !payment_frequency_interval) return "";
@@ -214,6 +223,14 @@ export function ProductCard({
           >
             <Button
               onClick={() => {
+                // Track select_item / InitiateCheckout event when clicking Purchase
+                analytics.selectItem({
+                  id: product_id,
+                  name,
+                  price: decodeCurrency(price, currency as CurrencyCode),
+                  currency: currency || "USD",
+                  quantity: 1,
+                });
                 setCheckout(true);
                 setQuantity(1);
               }}

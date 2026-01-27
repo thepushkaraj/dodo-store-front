@@ -46,11 +46,18 @@ async function fetchJson<T>(input: string, init?: RequestInit): Promise<T> {
   return (await res.json()) as T;
 }
 
+export interface TrackingDetails {
+  google_tag_manager_id?: string | null;
+  google_analytics_id?: string | null;
+  meta_pixel_id?: string | null;
+}
+
 export interface BusinessResponse {
   banner: string;
   business_id: string;
   logo: string;
   name: string;
+  tracking?: TrackingDetails | null;
 }
 
 export interface OneTimeProductApiResponse {

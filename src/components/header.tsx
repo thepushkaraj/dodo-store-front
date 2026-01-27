@@ -1,10 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 
+import { TrackingDetails } from "@/lib/server/storefront-client";
+
 export interface Business {
   banner: string;
   business_id: string;
   logo: string;
   name: string;
+  tracking?: TrackingDetails | null;
 }
 
 const Header = ({ business }: { business: Business }) => {

@@ -13,6 +13,8 @@ import {
   isUpstreamHttpError,
 } from "@/lib/server/storefront-client";
 import { redirect } from "next/navigation";
+import { StorefrontAnalyticsWrapper } from "@/components/analytics";
+import { decodeCurrency, CurrencyCode } from "@/lib/currency-helper";
 
 async function getData(slug: string) {
   const h = await headers();
@@ -97,29 +99,47 @@ export default async function Page({
 
   const { business, products, subscriptions, mode, checkoutBaseUrl } = data;
 
-  return (
-    <main className="min-h-screen bg-bg-primary">
-      <Banner mode={mode} />
-      <Header business={business} />
-      <section className="flex flex-col pb-20 items-center max-w-[1145px] mx-auto justify-center mt-10 px-4">
-        {products.length > 0 && (
-          <ProductGrid
-            title="Products"
-            products={products}
-            checkoutBaseUrl={checkoutBaseUrl}
-          />
-        )}
+  // Prepare analytics items from products and subscriptions
+  const analyticsItems = [
+    ...products.map((p) => ({
+      id: p.product_id,
+      name: p.name,
+      price: decodeCurrency(p.price, p.currency as CurrencyCode),
+      currency: p.currency || "USD",
+    })),
+    ...subscriptions.map((s) => ({
+      id: s.product_id,
+      name: s.name,
+      price: decodeCurrency(s.price, s.currency as CurrencyCode),
+      currency: s.currency || "USD",
+    })),
+  ];
 
-        {subscriptions.length > 0 && (
-          <div className="mt-8 w-full">
+  return (
+    <StorefrontAnalyticsWrapper tracking={business.tracking} products={analyticsItems}>
+      <main className="min-h-screen bg-bg-primary">
+        <Banner mode={mode} />
+        <Header business={business} />
+        <section className="flex flex-col pb-20 items-center max-w-[1145px] mx-auto justify-center mt-10 px-4">
+          {products.length > 0 && (
             <ProductGrid
-              title="Subscriptions"
-              products={subscriptions}
+              title="Products"
+              products={products}
               checkoutBaseUrl={checkoutBaseUrl}
             />
-          </div>
-        )}
-      </section>
-    </main>
+          )}
+
+          {subscriptions.length > 0 && (
+            <div className="mt-8 w-full">
+              <ProductGrid
+                title="Subscriptions"
+                products={subscriptions}
+                checkoutBaseUrl={checkoutBaseUrl}
+              />
+            </div>
+          )}
+        </section>
+      </main>
+    </StorefrontAnalyticsWrapper>
   );
 }
