@@ -6,7 +6,8 @@ import { Toaster } from "sonner";
 import "./globals.css";
 import { StoreProvider } from "@/store/provider";
 import FooterPill from "@/components/footer-pill";
-import { CSPostHogProvider } from "@/hooks/posthogProvider";
+import { CSOpenReplayProvider } from "@/hooks/openreplay-provider";
+import { CSPlausibleProvider } from "@/hooks/plausible-provider";
 import { LingoProvider, loadDictionary } from "lingo.dev/react/rsc";
 import { getUserLocale } from "@/lib/i18n-helper";
 
@@ -56,30 +57,32 @@ export default async function RootLayout({
   const locale = await getUserLocale();
   return (
     <StoreProvider>
-      <CSPostHogProvider>
-        <LingoProvider loadDictionary={(locale) => loadDictionary(locale)}>
-          <html
-            lang={locale}
-            className={`${inter.variable} ${gabarito.variable} h-full scroll-div`}
-            suppressHydrationWarning
-          >
-            <body className="font-body w-full h-full overflow-x-hidden">
-              <ThemeProvider
-                attribute="class"
-                defaultTheme="system"
-                enableSystem
-                disableTransitionOnChange
-              >
-                <main>
-                  <Toaster position="top-right" richColors />
-                  {children}
-                  <FooterPill align="end" locale={locale} />
-                </main>
-              </ThemeProvider>
-            </body>
-          </html>
-        </LingoProvider>
-      </CSPostHogProvider>
+      <CSPlausibleProvider>
+        <CSOpenReplayProvider>
+          <LingoProvider loadDictionary={(locale) => loadDictionary(locale)}>
+            <html
+              lang={locale}
+              className={`${inter.variable} ${gabarito.variable} h-full scroll-div`}
+              suppressHydrationWarning
+            >
+              <body className="font-body w-full h-full overflow-x-hidden">
+                <ThemeProvider
+                  attribute="class"
+                  defaultTheme="system"
+                  enableSystem
+                  disableTransitionOnChange
+                >
+                  <main>
+                    <Toaster position="top-right" richColors />
+                    {children}
+                    <FooterPill align="end" locale={locale} />
+                  </main>
+                </ThemeProvider>
+              </body>
+            </html>
+          </LingoProvider>
+        </CSOpenReplayProvider>
+      </CSPlausibleProvider>
     </StoreProvider>
   );
 }
