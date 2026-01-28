@@ -12,7 +12,7 @@
     </a>
   </div>
 </p>
-
+ 
 Simple, branded, mobile‑first storefront for selling one‑time and subscription products with Dodo Payments. Built with Next.js App Router, TypeScript, shadcn/ui, Radix UI, and Tailwind CSS.
 
 ### Overview
