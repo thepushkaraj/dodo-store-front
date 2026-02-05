@@ -223,14 +223,6 @@ export function ProductCard({
           >
             <Button
               onClick={() => {
-                // Track select_item / InitiateCheckout event when clicking Purchase
-                analytics.selectItem({
-                  id: product_id,
-                  name,
-                  price: decodeCurrency(price, currency as CurrencyCode),
-                  currency: currency || "USD",
-                  quantity: 1,
-                });
                 setCheckout(true);
                 setQuantity(1);
               }}
