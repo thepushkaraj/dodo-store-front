@@ -232,7 +232,7 @@ export function ProductCard({
               effect="expandIcon"
               icon={<ArrowRight className="w-5 h-5" />}
             >
-              Purchase
+              Purchase 
             </Button>
           </motion.div>
         ) : (
@@ -254,7 +254,7 @@ export function ProductCard({
               variant="secondary"
               onClick={handleCheckout}
             >
-              Buy now
+              Buy now 
             </Button>
           </motion.div>
         )}
