@@ -15,6 +15,7 @@ import {
 import { redirect } from "next/navigation";
 import { StorefrontAnalyticsWrapper } from "@/components/analytics";
 import { decodeCurrency, CurrencyCode } from "@/lib/currency-helper";
+import { getTranslations } from "next-intl/server";
 
 async function getData(slug: string) {
   const h = await headers();
@@ -98,6 +99,7 @@ export default async function Page({
   if ("notFound" in data) return redirect("/not-found");
 
   const { business, products, subscriptions, mode, checkoutBaseUrl } = data;
+  const t = await getTranslations("storefront");
 
   // Prepare analytics items from products and subscriptions
   const analyticsItems = [
@@ -123,7 +125,7 @@ export default async function Page({
         <section className="flex flex-col pb-20 items-center max-w-[1145px] mx-auto justify-center mt-10 px-4">
           {products.length > 0 && (
             <ProductGrid
-              title="Products"
+              title={t("products")}
               products={products}
               checkoutBaseUrl={checkoutBaseUrl}
             />
@@ -132,7 +134,7 @@ export default async function Page({
           {subscriptions.length > 0 && (
             <div className="mt-8 w-full">
               <ProductGrid
-                title="Subscriptions"
+                title={t("subscriptions")}
                 products={subscriptions}
                 checkoutBaseUrl={checkoutBaseUrl}
               />

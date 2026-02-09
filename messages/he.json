@@ -1,0 +1,38 @@
+{
+  "common": {
+    "loading": "טוען...",
+    "poweredBy": "מופעל על ידי Dodo Payments",
+    "logo": "לוגו",
+    "language": "שפה",
+    "switchToEnglish": "החלף לאנגלית",
+    "switchTo": "החלף ל{language}"
+  },
+  "header": {
+    "businessBanner": "באנר עסקי",
+    "businessLogo": "לוגו עסקי"
+  },
+  "product": {
+    "buyNow": "קנה עכשיו",
+    "purchase": "רכישה",
+    "dayTrial": "{days} ימי ניסיון",
+    "decreaseQuantity": "הפחת כמות",
+    "increaseQuantity": "הוסף כמות",
+    "quantity": "כמות",
+    "showDescription": "הצג תיאור",
+    "hideDescription": "הסתר תיאור"
+  },
+  "storefront": {
+    "products": "מוצרים",
+    "subscriptions": "מנויים",
+    "notFound": "חנות לא נמצאה",
+    "notFoundDescription": "החנות הזו אינה קיימת או כבר אינה זמינה."
+  },
+  "error": {
+    "somethingWentWrong": "משהו השתבש",
+    "networkError": "ייתכן שיש לך בעיית חיבור לרשת, הקישור פג תוקף, או שהקישור/החנות אינם תקינים."
+  },
+  "banner": {
+    "testMode": "אתה במצב בדיקה.",
+    "learnMore": "למידע נוסף"
+  }
+}

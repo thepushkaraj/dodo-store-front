@@ -1,6 +1,11 @@
+"use client";
+
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 const Loading = ({ className }: { className?: string }) => {
+  const t = useTranslations("common");
+
   return (
     <div role="status" >
       <svg
@@ -19,7 +24,7 @@ const Loading = ({ className }: { className?: string }) => {
           fill="currentFill"
         />
       </svg>
-      <span className="sr-only">Loading...</span>
+      <span className="sr-only">{t("loading")}</span>
     </div>
   );
 };

@@ -8,7 +8,8 @@ import { StoreProvider } from "@/store/provider";
 import FooterPill from "@/components/footer-pill";
 import { CSOpenReplayProvider } from "@/hooks/openreplay-provider";
 import { CSPlausibleProvider } from "@/hooks/plausible-provider";
-import { LingoProvider, loadDictionary } from "lingo.dev/react/rsc";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
 import { getUserLocale } from "@/lib/i18n-helper";
 
 // Load fonts
@@ -55,11 +56,13 @@ export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   const locale = await getUserLocale();
+  const messages = await getMessages();
+
   return (
     <StoreProvider>
       <CSPlausibleProvider>
         <CSOpenReplayProvider>
-          <LingoProvider loadDictionary={(locale) => loadDictionary(locale)}>
+          <NextIntlClientProvider messages={messages}>
             <html
               lang={locale}
               className={`${inter.variable} ${gabarito.variable} h-full scroll-div`}
@@ -80,7 +83,7 @@ export default async function RootLayout({
                 </ThemeProvider>
               </body>
             </html>
-          </LingoProvider>
+          </NextIntlClientProvider>
         </CSOpenReplayProvider>
       </CSPlausibleProvider>
     </StoreProvider>

@@ -1,0 +1,38 @@
+{
+  "common": {
+    "loading": "Chargement...",
+    "poweredBy": "Propulsé par Dodo Payments",
+    "logo": "logo",
+    "language": "Langue",
+    "switchToEnglish": "Passer à l'anglais",
+    "switchTo": "Passer à {language}"
+  },
+  "header": {
+    "businessBanner": "Bannière commerciale",
+    "businessLogo": "Logo de l'entreprise"
+  },
+  "product": {
+    "buyNow": "Acheter maintenant",
+    "purchase": "Acheter",
+    "dayTrial": "Essai de {days} jours",
+    "decreaseQuantity": "Diminuer la quantité",
+    "increaseQuantity": "Augmenter la quantité",
+    "quantity": "Quantité",
+    "showDescription": "Afficher la description",
+    "hideDescription": "Masquer la description"
+  },
+  "storefront": {
+    "products": "Produits",
+    "subscriptions": "Abonnements",
+    "notFound": "Boutique introuvable",
+    "notFoundDescription": "Cette boutique n'existe pas ou n'est plus disponible."
+  },
+  "error": {
+    "somethingWentWrong": "Une erreur est survenue",
+    "networkError": "Vous rencontrez peut-être un problème de connexion réseau, le lien a peut-être expiré, ou le lien/la boutique est invalide."
+  },
+  "banner": {
+    "testMode": "Vous êtes en mode test.",
+    "learnMore": "En savoir plus"
+  }
+}
