@@ -1,0 +1,38 @@
+{
+  "common": {
+    "loading": "Carregant...",
+    "poweredBy": "Impulsat per Dodo Payments",
+    "logo": "logotip",
+    "language": "Idioma",
+    "switchToEnglish": "Canvia a anglès",
+    "switchTo": "Canvia a {language}"
+  },
+  "header": {
+    "businessBanner": "Bàner empresarial",
+    "businessLogo": "Logotip empresarial"
+  },
+  "product": {
+    "buyNow": "Compra ara",
+    "purchase": "Compra",
+    "dayTrial": "{days} dies de prova",
+    "decreaseQuantity": "Reduir quantitat",
+    "increaseQuantity": "Augmentar quantitat",
+    "quantity": "Quantitat",
+    "showDescription": "Mostra la descripció",
+    "hideDescription": "Amaga la descripció"
+  },
+  "storefront": {
+    "products": "Productes",
+    "subscriptions": "Subscripcions",
+    "notFound": "Botiga no trobada",
+    "notFoundDescription": "Aquesta botiga no existeix o ja no està disponible."
+  },
+  "error": {
+    "somethingWentWrong": "Alguna cosa ha anat malament",
+    "networkError": "Potser tens un problema de connexió a la xarxa, l'enllaç ha caducat o l'enllaç/botiga no és vàlid."
+  },
+  "banner": {
+    "testMode": "Estàs en mode de prova.",
+    "learnMore": "Més informació"
+  }
+}

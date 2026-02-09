@@ -1,0 +1,38 @@
+{
+  "common": {
+    "loading": "Ładowanie...",
+    "poweredBy": "Dostarczane przez Dodo Payments",
+    "logo": "logo",
+    "language": "Język",
+    "switchToEnglish": "Przełącz na angielski",
+    "switchTo": "Przełącz na {language}"
+  },
+  "header": {
+    "businessBanner": "Baner firmowy",
+    "businessLogo": "Logo firmy"
+  },
+  "product": {
+    "buyNow": "Kup teraz",
+    "purchase": "Zakup",
+    "dayTrial": "{days}-dniowy okres próbny",
+    "decreaseQuantity": "Zmniejsz ilość",
+    "increaseQuantity": "Zwiększ ilość",
+    "quantity": "Ilość",
+    "showDescription": "Pokaż opis",
+    "hideDescription": "Ukryj opis"
+  },
+  "storefront": {
+    "products": "Produkty",
+    "subscriptions": "Subskrypcje",
+    "notFound": "Sklep nie znaleziony",
+    "notFoundDescription": "Ten sklep nie istnieje lub nie jest już dostępny."
+  },
+  "error": {
+    "somethingWentWrong": "Coś poszło nie tak",
+    "networkError": "Możesz mieć problem z połączeniem sieciowym, link może być nieaktualny lub link/sklep może być nieprawidłowy."
+  },
+  "banner": {
+    "testMode": "Jesteś w trybie testowym.",
+    "learnMore": "Dowiedz się więcej"
+  }
+}

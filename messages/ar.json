@@ -1,0 +1,38 @@
+{
+  "common": {
+    "loading": "جارٍ التحميل...",
+    "poweredBy": "مدعوم من Dodo Payments",
+    "logo": "الشعار",
+    "language": "اللغة",
+    "switchToEnglish": "التبديل إلى الإنجليزية",
+    "switchTo": "التبديل إلى {language}"
+  },
+  "header": {
+    "businessBanner": "لافتة العمل",
+    "businessLogo": "شعار العمل"
+  },
+  "product": {
+    "buyNow": "اشترِ الآن",
+    "purchase": "شراء",
+    "dayTrial": "{days} أيام تجربة",
+    "decreaseQuantity": "تقليل الكمية",
+    "increaseQuantity": "زيادة الكمية",
+    "quantity": "الكمية",
+    "showDescription": "إظهار الوصف",
+    "hideDescription": "إخفاء الوصف"
+  },
+  "storefront": {
+    "products": "المنتجات",
+    "subscriptions": "الاشتراكات",
+    "notFound": "لم يتم العثور على المتجر",
+    "notFoundDescription": "هذا المتجر غير موجود أو لم يعد متاحًا."
+  },
+  "error": {
+    "somethingWentWrong": "حدث خطأ ما",
+    "networkError": "قد تواجه مشكلة في اتصال الشبكة، أو قد يكون الرابط منتهي الصلاحية، أو الرابط/المتجر غير صالح."
+  },
+  "banner": {
+    "testMode": "أنت في وضع الاختبار.",
+    "learnMore": "تعرف على المزيد"
+  }
+}

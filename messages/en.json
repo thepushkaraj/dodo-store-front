@@ -1,0 +1,38 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "poweredBy": "Powered by Dodo Payments",
+    "logo": "logo",
+    "language": "Language",
+    "switchToEnglish": "Switch to English",
+    "switchTo": "Switch to {language}"
+  },
+  "header": {
+    "businessBanner": "Business banner",
+    "businessLogo": "Business Logo"
+  },
+  "product": {
+    "buyNow": "Buy now",
+    "purchase": "Purchase",
+    "dayTrial": "{days} day trial",
+    "decreaseQuantity": "Decrease quantity",
+    "increaseQuantity": "Increase quantity",
+    "quantity": "Quantity",
+    "showDescription": "Show description",
+    "hideDescription": "Hide description"
+  },
+  "storefront": {
+    "products": "Products",
+    "subscriptions": "Subscriptions",
+    "notFound": "Storefront Not Found",
+    "notFoundDescription": "This storefront does not exist or is no longer available."
+  },
+  "error": {
+    "somethingWentWrong": "Something went wrong",
+    "networkError": "You might be having a network connection problem, the link might be expired, or the link/storefront might be invalid."
+  },
+  "banner": {
+    "testMode": "You are in Test Mode.",
+    "learnMore": "Learn More"
+  }
+}

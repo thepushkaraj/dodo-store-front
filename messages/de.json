@@ -1,0 +1,38 @@
+{
+  "common": {
+    "loading": "Wird geladen...",
+    "poweredBy": "Bereitgestellt von Dodo Payments",
+    "logo": "Logo",
+    "language": "Sprache",
+    "switchToEnglish": "Wechsel zu Englisch",
+    "switchTo": "Wechsel zu {language}"
+  },
+  "header": {
+    "businessBanner": "Business-Banner",
+    "businessLogo": "Business-Logo"
+  },
+  "product": {
+    "buyNow": "Jetzt kaufen",
+    "purchase": "Kaufen",
+    "dayTrial": "{days} Tage Testversion",
+    "decreaseQuantity": "Menge verringern",
+    "increaseQuantity": "Menge erhöhen",
+    "quantity": "Menge",
+    "showDescription": "Beschreibung anzeigen",
+    "hideDescription": "Beschreibung ausblenden"
+  },
+  "storefront": {
+    "products": "Produkte",
+    "subscriptions": "Abonnements",
+    "notFound": "Storefront nicht gefunden",
+    "notFoundDescription": "Dieser Storefront existiert nicht oder ist nicht mehr verfügbar."
+  },
+  "error": {
+    "somethingWentWrong": "Etwas ist schiefgelaufen",
+    "networkError": "Möglicherweise haben Sie ein Problem mit der Netzwerkverbindung, der Link ist möglicherweise abgelaufen oder der Link/Storefront ist ungültig."
+  },
+  "banner": {
+    "testMode": "Sie befinden sich im Testmodus.",
+    "learnMore": "Mehr erfahren"
+  }
+}

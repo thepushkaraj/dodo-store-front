@@ -1,0 +1,38 @@
+{
+  "common": {
+    "loading": "Laddar...",
+    "poweredBy": "Drivs av Dodo Payments",
+    "logo": "logotyp",
+    "language": "Språk",
+    "switchToEnglish": "Byt till engelska",
+    "switchTo": "Byt till {language}"
+  },
+  "header": {
+    "businessBanner": "Företagsbanner",
+    "businessLogo": "Företagslogotyp"
+  },
+  "product": {
+    "buyNow": "Köp nu",
+    "purchase": "Köp",
+    "dayTrial": "{days} dagars provperiod",
+    "decreaseQuantity": "Minska antal",
+    "increaseQuantity": "Öka antal",
+    "quantity": "Antal",
+    "showDescription": "Visa beskrivning",
+    "hideDescription": "Dölj beskrivning"
+  },
+  "storefront": {
+    "products": "Produkter",
+    "subscriptions": "Prenumerationer",
+    "notFound": "Butiksfronten hittades inte",
+    "notFoundDescription": "Denna butiksfront finns inte eller är inte längre tillgänglig."
+  },
+  "error": {
+    "somethingWentWrong": "Något gick fel",
+    "networkError": "Du kan ha problem med nätverksanslutningen, länken kan ha gått ut eller länken/butiksfronten kan vara ogiltig."
+  },
+  "banner": {
+    "testMode": "Du är i testläge.",
+    "learnMore": "Läs mer"
+  }
+}

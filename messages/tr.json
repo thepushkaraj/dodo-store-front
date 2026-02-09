@@ -1,0 +1,38 @@
+{
+  "common": {
+    "loading": "Yükleniyor...",
+    "poweredBy": "Dodo Payments tarafından desteklenmektedir",
+    "logo": "logo",
+    "language": "Dil",
+    "switchToEnglish": "İngilizceye geç",
+    "switchTo": "{language} diline geç"
+  },
+  "header": {
+    "businessBanner": "İşletme afişi",
+    "businessLogo": "İşletme Logosu"
+  },
+  "product": {
+    "buyNow": "Şimdi satın al",
+    "purchase": "Satın al",
+    "dayTrial": "{days} günlük deneme",
+    "decreaseQuantity": "Miktarı azalt",
+    "increaseQuantity": "Miktarı artır",
+    "quantity": "Miktar",
+    "showDescription": "Açıklamayı göster",
+    "hideDescription": "Açıklamayı gizle"
+  },
+  "storefront": {
+    "products": "Ürünler",
+    "subscriptions": "Abonelikler",
+    "notFound": "Mağaza Bulunamadı",
+    "notFoundDescription": "Bu mağaza mevcut değil veya artık kullanılamıyor."
+  },
+  "error": {
+    "somethingWentWrong": "Bir şeyler yanlış gitti",
+    "networkError": "Ağ bağlantısı sorunu yaşıyor olabilirsiniz, bağlantı süresi dolmuş olabilir veya bağlantı/mağaza geçersiz olabilir."
+  },
+  "banner": {
+    "testMode": "Test Modundasınız.",
+    "learnMore": "Daha Fazla Bilgi"
+  }
+}

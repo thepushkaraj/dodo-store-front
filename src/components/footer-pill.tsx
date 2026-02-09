@@ -5,14 +5,17 @@ import Link from "next/link";
 import React from "react";
 import LocaleSwitcher from "./locale-switcher";
 import { Locale } from "@/i18n/config";
+import { getTranslations } from "next-intl/server";
 
-const FooterPill = ({
+const FooterPill = async ({
   align = "center",
   locale,
 }: {
   align?: "center" | "start" | "end";
   locale: Locale;
 }) => {
+  const t = await getTranslations("common");
+
   return (
     <footer
       className={cn(
@@ -32,13 +35,13 @@ const FooterPill = ({
         <div className="flex items-center justify-center bg-bg-secondary  border-border-secondary rounded-lg py-[10px] px-[12px] gap-[6px]">
           <img
             src="/images/brand-assets/logo/logo.svg"
-            alt="logo"
+            alt={t("logo")}
             width={20}
             height={20}
             className="object-cover object-center"
           />
           <p className="text-sm w-full text-nowrap font-light tracking-[-0.22px] font-display">
-            Powered by Dodo Payments
+            {t("poweredBy")}
           </p>
         </div>
       </Link>

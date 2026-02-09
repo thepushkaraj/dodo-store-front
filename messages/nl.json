@@ -1,0 +1,38 @@
+{
+  "common": {
+    "loading": "Bezig met laden...",
+    "poweredBy": "Aangedreven door Dodo Payments",
+    "logo": "logo",
+    "language": "Taal",
+    "switchToEnglish": "Overschakelen naar Engels",
+    "switchTo": "Overschakelen naar {language}"
+  },
+  "header": {
+    "businessBanner": "Bedrijfsbanner",
+    "businessLogo": "Bedrijfslogo"
+  },
+  "product": {
+    "buyNow": "Nu kopen",
+    "purchase": "Aankopen",
+    "dayTrial": "{days} dagen proefperiode",
+    "decreaseQuantity": "Aantal verlagen",
+    "increaseQuantity": "Aantal verhogen",
+    "quantity": "Aantal",
+    "showDescription": "Beschrijving tonen",
+    "hideDescription": "Beschrijving verbergen"
+  },
+  "storefront": {
+    "products": "Producten",
+    "subscriptions": "Abonnementen",
+    "notFound": "Winkel niet gevonden",
+    "notFoundDescription": "Deze winkel bestaat niet of is niet langer beschikbaar."
+  },
+  "error": {
+    "somethingWentWrong": "Er is iets misgegaan",
+    "networkError": "Er kan een probleem zijn met je netwerkverbinding, de link kan verlopen zijn, of de link/winkel kan ongeldig zijn."
+  },
+  "banner": {
+    "testMode": "Je bent in de testmodus.",
+    "learnMore": "Meer informatie"
+  }
+}

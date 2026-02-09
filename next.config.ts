@@ -1,6 +1,6 @@
 import { withSentryConfig } from "@sentry/nextjs";
 import type { NextConfig } from "next";
-import lingoCompiler from "lingo.dev/compiler";
+import createNextIntlPlugin from "next-intl/plugin";
 import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 
 // Initialize Cloudflare dev mode for local development
@@ -12,7 +12,10 @@ const nextConfig: NextConfig = {
   images: {
     // Use Cloudflare's image optimization when deployed
     loader: process.env.NODE_ENV === "production" ? "custom" : undefined,
-    loaderFile: process.env.NODE_ENV === "production" ? "./src/lib/cloudflare-image-loader.ts" : undefined,
+    loaderFile:
+      process.env.NODE_ENV === "production"
+        ? "./src/lib/cloudflare-image-loader.ts"
+        : undefined,
     remotePatterns: [
       {
         hostname: "**",
@@ -26,7 +29,8 @@ const nextConfig: NextConfig = {
       ...(config.ignoreWarnings || []),
       {
         module: /node_modules\/@opentelemetry\/instrumentation/,
-        message: /Critical dependency: the request of a dependency is an expression/,
+        message:
+          /Critical dependency: the request of a dependency is an expression/,
       },
     ];
     return config;
@@ -34,38 +38,13 @@ const nextConfig: NextConfig = {
   /* config options here */
 };
 
-// Initialize Lingo.dev Compiler for Next.js (App Router under src/app)
-const withLingo = lingoCompiler.next({
-  sourceRoot: "src/app",
-  lingoDir: "lingo",
-  sourceLocale: "en",
-  targetLocales: [
-    "ar",
-    "ca",
-    "de",
-    "zh",
-    "es",
-    "fr",
-    "he",
-    "it",
-    "ja",
-    "nl",
-    "pl",
-    "pt",
-    "sv",
-    "tr",
-  ],
-  rsc: true,
-  useDirective: false,
-  debug: false,
-  models: {
-    "*:*": "openrouter:openai/gpt-4.1-mini",
-  },
-});
+// Initialize next-intl plugin
+const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
+
+// Apply next-intl first
+let config = withNextIntl(nextConfig);
 
 // Only apply Sentry configuration if environment variables are present
-let config = withLingo(nextConfig);
-
 if (process.env.NEXT_PUBLIC_SENTRY_PROJECT_NAME) {
   try {
     // Dynamic import for Sentry to avoid linter issues

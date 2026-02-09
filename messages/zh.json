@@ -1,0 +1,38 @@
+{
+  "common": {
+    "loading": "加载中...",
+    "poweredBy": "由 Dodo Payments 提供技术支持",
+    "logo": "标志",
+    "language": "语言",
+    "switchToEnglish": "切换到英语",
+    "switchTo": "切换到 {language}"
+  },
+  "header": {
+    "businessBanner": "商业横幅",
+    "businessLogo": "企业标志"
+  },
+  "product": {
+    "buyNow": "立即购买",
+    "purchase": "购买",
+    "dayTrial": "{days} 天试用",
+    "decreaseQuantity": "减少数量",
+    "increaseQuantity": "增加数量",
+    "quantity": "数量",
+    "showDescription": "显示描述",
+    "hideDescription": "隐藏描述"
+  },
+  "storefront": {
+    "products": "产品",
+    "subscriptions": "订阅",
+    "notFound": "未找到店铺",
+    "notFoundDescription": "该店铺不存在或已不再提供服务。"
+  },
+  "error": {
+    "somethingWentWrong": "出了点问题",
+    "networkError": "您可能遇到了网络连接问题，链接可能已过期，或者链接/店铺无效。"
+  },
+  "banner": {
+    "testMode": "您处于测试模式。",
+    "learnMore": "了解更多"
+  }
+}
