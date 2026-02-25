@@ -1,4 +1,4 @@
-import Header, { Business } from "@/components/header";
+import Header from "@/components/header";
 import { ProductGrid } from "@/components/product/ProductGrid";
 import Banner from "@/components/ui/dodoui/banner";
 import { ProductCardProps } from "@/components/product/ProductCard";
@@ -16,6 +16,7 @@ import { redirect } from "next/navigation";
 import { StorefrontAnalyticsWrapper } from "@/components/analytics";
 import { decodeCurrency, CurrencyCode } from "@/lib/currency-helper";
 import { getTranslations } from "next-intl/server";
+import SessionThemeWrapper from "@/components/providers/session-theme-wrapper";
 
 async function getData(slug: string) {
   const h = await headers();
@@ -28,8 +29,6 @@ async function getData(slug: string) {
       getProducts(mode, slug, { recurring: false, page_size: 100 }),
       getProducts(mode, slug, { recurring: true, page_size: 100 }),
     ]);
-
-    const businessData: Business = business;
 
     const products: ProductCardProps[] = productsJson.items.map((product) => ({
       product_id: product.product_id,
@@ -54,7 +53,7 @@ async function getData(slug: string) {
     }));
 
     return {
-      business: businessData,
+      business,
       products,
       subscriptions,
       mode,
@@ -118,30 +117,32 @@ export default async function Page({
   ];
 
   return (
-    <StorefrontAnalyticsWrapper tracking={business.tracking} products={analyticsItems}>
-      <main className="min-h-screen bg-bg-primary">
-        <Banner mode={mode} />
-        <Header business={business} />
-        <section className="flex flex-col pb-20 items-center max-w-[1145px] mx-auto justify-center mt-10 px-4">
-          {products.length > 0 && (
-            <ProductGrid
-              title={t("products")}
-              products={products}
-              checkoutBaseUrl={checkoutBaseUrl}
-            />
-          )}
-
-          {subscriptions.length > 0 && (
-            <div className="mt-8 w-full">
+    <SessionThemeWrapper sessionThemeConfig={business.theme_config}>
+      <StorefrontAnalyticsWrapper tracking={business.tracking} products={analyticsItems}>
+        <main className="min-h-screen bg-bg-primary">
+          <Banner mode={mode} />
+          <Header business={business} />
+          <section className="flex flex-col pb-20 items-center max-w-[1145px] mx-auto justify-center mt-10 px-4">
+            {products.length > 0 && (
               <ProductGrid
-                title={t("subscriptions")}
-                products={subscriptions}
+                title={t("products")}
+                products={products}
                 checkoutBaseUrl={checkoutBaseUrl}
               />
-            </div>
-          )}
-        </section>
-      </main>
-    </StorefrontAnalyticsWrapper>
+            )}
+
+            {subscriptions.length > 0 && (
+              <div className="mt-8 w-full">
+                <ProductGrid
+                  title={t("subscriptions")}
+                  products={subscriptions}
+                  checkoutBaseUrl={checkoutBaseUrl}
+                />
+              </div>
+            )}
+          </section>
+        </main>
+      </StorefrontAnalyticsWrapper>
+    </SessionThemeWrapper>
   );
 }

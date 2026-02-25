@@ -9,7 +9,7 @@ interface ProductGridProps {
 export function ProductGrid({ title, products, checkoutBaseUrl }: ProductGridProps) {
   return (
     <>
-      <h2 className="text-text-primary w-full mb-6 text-left font-display text-lg font-medium">
+      <h2 className="text-text-primary w-full mb-6 text-left font-display text-lg">
         {title}
       </h2>
       <div className="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 items-start gap-6">

@@ -9,7 +9,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-button-primary-bg text-white dark:text-black hover:bg-button-primary-bg-hover hover:text-button-primary-fg-hover hover:border-border-primary border border-transparent disabled:bg-bg-secondary disabled:text-text-tertiary disabled:border-border-tertiary disabled:pointer-events-none",
+        default: "bg-button-primary-bg text-button-primary-text hover:bg-button-primary-bg-hover hover:text-button-primary-fg-hover hover:border-border-primary border border-transparent disabled:bg-bg-secondary disabled:text-text-tertiary disabled:border-border-tertiary disabled:pointer-events-none",
         destructive: "bg-bg-error-solid text-white",
         outline: "border border-border-primary bg-bg-primary hover:bg-bg-secondary hover:text-text-secondary",
         secondary: "bg-button-secondary-bg text-button-secondary-text hover:bg-button-secondary-bg-hover disabled:text-neutral-400 dark:disabled:text-text-disabled disabled:hover:bg-button-secondary-bg disabled:hover:text-button-secondary-text disabled:hover:text-text-disabled hover:text-button-secondary-text-hover",

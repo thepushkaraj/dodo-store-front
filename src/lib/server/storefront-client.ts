@@ -1,4 +1,5 @@
 import type { Mode } from "@/types/storefront";
+import type { ThemeConfig, ThemeMode } from "@/types/theme";
 
 export interface UpstreamHttpError extends Error {
   statusCode: number;
@@ -58,6 +59,8 @@ export interface BusinessResponse {
   logo: string;
   name: string;
   tracking?: TrackingDetails | null;
+  theme_config?: ThemeConfig | null;
+  theme_mode?: ThemeMode | null;
 }
 
 export interface OneTimeProductApiResponse {

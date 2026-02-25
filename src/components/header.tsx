@@ -1,17 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 
-import { TrackingDetails } from "@/lib/server/storefront-client";
+import { BusinessResponse } from "@/lib/server/storefront-client";
 import { getTranslations } from "next-intl/server";
 
-export interface Business {
-  banner: string;
-  business_id: string;
-  logo: string;
-  name: string;
-  tracking?: TrackingDetails | null;
-}
-
-const Header = async ({ business }: { business: Business }) => {
+const Header = async ({ business }: { business: BusinessResponse }) => {
   const t = await getTranslations("header");
 
   return (

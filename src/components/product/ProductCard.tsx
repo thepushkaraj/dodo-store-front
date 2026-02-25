@@ -186,7 +186,7 @@ export function ProductCard({
       />
 
       <div className="flex flex-col bg-bg-primary gap-0 mt-6">
-        <h3 className="text-text-primary font-display text-base font-medium">
+        <h3 className="text-text-primary font-display text-base">
           {name}
         </h3>
         <div className="flex items-baseline gap-2">
@@ -199,7 +199,7 @@ export function ProductCard({
                 )}
               </p>
               <div className="flex items-baseline gap-1">
-                <p className="text-sm font-medium">{getPrice()}</p>
+                <p className="text-sm font-body">{getPrice()}</p>
                 <p className="text-xs text-text-secondary">
                   {formatFrequency()}
                 </p>
@@ -207,7 +207,7 @@ export function ProductCard({
             </>
           ) : (
             <>
-              <p className="text-sm font-medium">{getPrice()}</p>
+              <p className="text-sm font-body">{getPrice()}</p>
               <p className="text-xs text-text-secondary">{formatFrequency()}</p>
             </>
           )}
