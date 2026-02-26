@@ -1,5 +1,6 @@
 import { ThemeConfig } from "@/types/theme";
 import { generateSessionThemeCSS, extractFontUrls } from "@/lib/session-theme-helper";
+import { sanitizeCSS } from "@/lib/theme-validators";
 
 interface SessionThemeWrapperProps {
   children: React.ReactNode;
@@ -16,7 +17,9 @@ function parseFontFamily(url: string): string | null {
     const familyParam = new URL(url).searchParams.get("family");
     if (!familyParam) return null;
     const name = familyParam.split(":")[0].replace(/\+/g, " ");
-    return `'${name}', sans-serif`;
+    const sanitized = sanitizeCSS(name);
+    if (!sanitized) return null;
+    return `'${sanitized}', sans-serif`;
   } catch {
     return null;
   }
